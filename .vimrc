@@ -24,6 +24,7 @@ let g:fencview_autodetect=0
 map <C-F3> :FencView<cr>
 
 "set help language
+let helptags="/home/nzm/.vim/bundle/vimcdoc"
 set helplang=cn
 
 "windows behave set
@@ -50,8 +51,8 @@ syntax on
 " color scheme
 set background=dark
 " color vividchalk
-" color molokai
-color desert
+color molokai
+" color desert
 " color jellybeans
 " color solarized
 " color obsidian2
@@ -280,7 +281,16 @@ nnoremap ; :
 if has("gui_running")
     set go=aAcem  " remove toolbar
     "set transparency=30
-    set guifont=Monaco:h13
+    if has("gui_gtk2")
+        set guifont=Droid\ Sans\ Mono\ 11
+        " set guifont=DejaVu\ Sans\ Mono\ 11
+    elseif has("gui_macvim")
+        set guifont=Monaco:h13
+        " set guifont=DejaVu_Sans_Mono:h11
+    elseif has("gui_win32")
+        set guifont=Courier_New:h12:cANSI
+        " set guifont=DejaVu_Sans_Mono:h11
+    end
     set showtabline=2
     set columns=140
     set lines=40
@@ -297,7 +307,6 @@ if has("gui_running")
     map <D-9> 9gt
     map <D-0> :tablast<CR>
 endif
-set guifont=Courier_New:h12:cANSI
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
