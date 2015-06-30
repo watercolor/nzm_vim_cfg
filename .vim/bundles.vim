@@ -11,11 +11,16 @@ call vundle#begin()
 "------------------
 " Code Completions
 "------------------
-Plugin 'Shougo/neocomplcache'
-Plugin 'honza/vim-snippets'
+" Plugin 'Shougo/neocomplcache'
+" Plugin 'honza/vim-snippets'
+Plugin 'Shougo/neocomplete'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
+
 Plugin 'ervandew/supertab'
 "Plugin 'honza/snipmate-snippets'
-Plugin 'mattn/zencoding-vim'
+" Plugin 'mattn/zencoding-vim'
+Plugin 'mattn/emmet-vim'
 Plugin 'Raimondi/delimitMate'
 "------ snipmate dependencies -------
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -63,6 +68,7 @@ Plugin '2072/PHP-Indenting-for-VIm'
 "Plugin 'tpope/vim-rails'
 Plugin 'lepture/vim-jinja'
 "Plugin 'digitaltoad/vim-jade'
+Plugin 'toyamarinyon/vim-swift'
 
 "------- web frontend ----------
 Plugin 'othree/html5.vim'
@@ -117,6 +123,8 @@ Plugin 'vim-scripts/Colour-Sampler-Pack'
 Plugin 'vim-scripts/a.vim'
 Plugin 'vim-scripts/python.vim'
 Plugin 'sjas/csExplorer'
+Plugin 'vim-scripts/increment.vim--Avadhanula'
+Plugin 'haya14busa/incsearch.vim'
 "=============== my add for daily end ===============
 "--------------
 " Color Schemes
