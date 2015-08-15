@@ -37,6 +37,8 @@ endif
 "Quickfix hotkey bindings
 map <leader>co <ESC>:copen<CR>
 map <leader>cd <ESC>:cclose<CR>
+map ,cn <ESC>:cnext<CR>
+map ,cp <ESC>:cprev<CR>
 "========== my add end ========== 
 
 " enable filetype dectection and ft specific plugin/indent
@@ -269,7 +271,7 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " eggcache vim
-nnoremap ; :
+" nnoremap ; :
 :command W w
 :command WQ wq
 :command Wq wq
@@ -441,3 +443,6 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " let g:clang_use_library = 1
 " let g:clang_library_path='~/clang/bin'
 " let g:clang_exec='~/clang/bin/clang.exe'
+
+" cscope Quickfix setting
+set cscopequickfix=s-,c-,d-,i-,t-,e-
