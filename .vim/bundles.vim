@@ -11,15 +11,15 @@ call vundle#begin()
 "------------------
 " Code Completions
 "------------------
-" Plugin 'Shougo/neocomplcache'
+Plugin 'Shougo/neocomplcache'
 " Plugin 'honza/vim-snippets'
-Plugin 'Shougo/neocomplete'
+" Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
-
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'ervandew/supertab'
 "Plugin 'honza/snipmate-snippets'
-" Plugin 'mattn/zencoding-vim'
+" Plugin 'mattn/zencoding-vim' not used
 Plugin 'mattn/emmet-vim'
 Plugin 'Raimondi/delimitMate'
 "------ snipmate dependencies -------
@@ -31,6 +31,10 @@ Plugin 'tomtom/tlib_vim'
 "-----------------
 Plugin 'edsono/vim-matchit'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'vim-scripts/gtags.vim'
+Plugin 'mvalkon/gtags-cscope'
+Plugin 'vim-scripts/FuzzyFinder'
+Plugin 'vim-scripts/L9'
 
 "--------------
 " Fast editing

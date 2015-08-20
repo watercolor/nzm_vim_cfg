@@ -446,3 +446,9 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " cscope Quickfix setting
 set cscopequickfix=s-,c-,d-,i-,t-,e-
+function! UpdateGtags(f)
+    let dir = fnamemodify(a:f, ':p:h')
+    exe 'silent !cd ' . dir . ' && global -u &> /dev/null &'
+endfunction
+au BufWritePost *.[ch] call UpdateGtags(expand('<afile>'))
+nmap <C-CR> :tag <C-R>=expand("<cword>")<CR><CR>
