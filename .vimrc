@@ -240,7 +240,11 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 " Keybindings for plugin toggle
 nmap <F5> :TagbarToggle<cr>
 nmap <F6> :NERDTreeToggle<cr>
-nmap <F3> :GundoToggle<cr>
+nmap <F7> :FufTag<cr>
+nmap <F8> :FufBufferTag<cr>
+nmap <F9> :FufFile<cr>
+" nmap <F3> :GundoToggle<cr>
+nmap <F3> :BufExplorer<cr>
 nmap <F4> :IndentGuidesToggle<cr>
 nmap  <D-/> :
 nnoremap <leader>a :Ack
@@ -445,7 +449,7 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " let g:clang_exec='~/clang/bin/clang.exe'
 
 " cscope Quickfix setting
-set cscopequickfix=s-,c-,d-,i-,t-,e-
+set cscopequickfix=s-,c-,d-,i-,t-,e-,g-,f-
 function! UpdateGtags(f)
     let dir = fnamemodify(a:f, ':p:h')
     exe 'silent !cd ' . dir . ' && global -u &> /dev/null &'
