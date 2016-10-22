@@ -11,11 +11,22 @@ call vundle#begin()
 "------------------
 " Code Completions
 "------------------
-Plugin 'Shougo/neocomplcache'
-" Plugin 'honza/vim-snippets'
+" set neocomplcache or neocomplete in .vimrc
+" Plugin 'Shougo/neocomplcache'
 " Plugin 'Shougo/neocomplete'
+" Unite pack
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/unite-outline'
+Plugin 'tsukkee/unite-tag'
+Plugin 'osyo-manga/unite-quickfix'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/neoyank.vim'
+Plugin 'Shougo/neomru.vim'
+
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
+" Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'ervandew/supertab'
 "Plugin 'honza/snipmate-snippets'
@@ -57,7 +68,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'scrooloose/syntastic'
 Plugin 'bronson/vim-trailing-whitespace'
-
+Plugin 'msanders/cocoa.vim'
 "-------------
 " Other Utils
 "-------------
@@ -100,6 +111,8 @@ Plugin 'kien/rainbow_parentheses.vim'
 " Plugin 'vim-scripts/VimClojure'
 " Plugin 'rosstimson/scala-vim-support'
 
+"------- Java ------
+Plugin 'artur-shaik/vim-javacomplete2'
 "=============== my add for daily use ===============
 "----- Mark -------
 Plugin 'jkeylu/mark2666'
@@ -116,7 +129,6 @@ Plugin 'wesleyche/SrcExpl'
 " Plugin 'bolasblack/vimcdoc'
 Plugin 'asins/vimcdoc'
 Plugin 'mbbill/fencview'
-Plugin 'Shougo/neosnippet.vim'
 " Plugin 'KJlmfe/Conque-Shell'
 " has clang , but config is too complex
 " Plugin 'Rip-Rip/clang_complete'
@@ -129,6 +141,7 @@ Plugin 'vim-scripts/python.vim'
 Plugin 'sjas/csExplorer'
 Plugin 'vim-scripts/increment.vim--Avadhanula'
 Plugin 'haya14busa/incsearch.vim'
+Plugin 'davidhalter/jedi-vim'
 "=============== my add for daily end ===============
 "--------------
 " Color Schemes
@@ -149,6 +162,7 @@ Plugin 'vim-scripts/tir_black'
 Plugin 'vim-scripts/obsidian'
 Plugin 'vim-scripts/Son-of-Obisidian'
 Plugin 'brettof86/vim-codeschool'
+Plugin 'wincent/command-t'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
