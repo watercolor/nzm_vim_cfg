@@ -347,3 +347,5 @@ nnoremap <silent> <space>. :cd %:p:h<CR>
 
 " soure unite config
 source ~/.vim/unite_cfg.vim
+let g:jedi#completions_command = "<C-N>"
+let g:ackprg = "ag --vimgrep"
