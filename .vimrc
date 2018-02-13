@@ -5,8 +5,9 @@ source ~/.vim/bundles.vim
 "========== my add begin ========== 
 "encoding set
 set encoding=utf-8
-set fenc=cp936
-set fileencodings=ucs-bom,gb18030,utf-8,gb2312,gbk,cp936,latin1
+" set fenc=cp936
+" set fenc=utf-8
+set fileencodings=utf-8,ucs-bom,gb18030,gb2312,gbk,cp936,latin1
 
 "for gvim menu display
 if has ('win32')
@@ -35,10 +36,12 @@ if has('win32')
 endif
 
 "Quickfix hotkey bindings
-map <leader>co <ESC>:copen<CR>
-map <leader>cd <ESC>:cclose<CR>
-map ,cn <ESC>:cnext<CR>
-map ,cp <ESC>:cprev<CR>
+nmap <leader>co <ESC>:copen<CR>
+nmap <leader>cd <ESC>:cclose<CR>
+nmap <C-n> <ESC>:cnext<cr>
+" nmap <C-p> <ESC>:cprev<cr>
+" map <leader>cn <ESC>:cnext<CR>
+" map <leader>cp <ESC>:cprev<CR>
 "========== my add end ========== 
 
 " enable filetype dectection and ft specific plugin/indent
@@ -80,7 +83,6 @@ set nofoldenable                                                  " disable fold
 set confirm                                                       " prompt when existing from an unsaved file
 set backspace=indent,eol,start                                    " More powerful backspacing
 set t_Co=256                                                      " Explicitly tell vim that the terminal has 256 colors "
-set mouse=a                                                       " use mouse in all modes
 set report=0                                                      " always report number of lines changed                "
 set nowrap                                                        " dont wrap lines
 set scrolloff=5                                                   " 5 lines above/below cursor when scrolling
@@ -144,13 +146,13 @@ let g:rbpt_max = 16
 autocmd Syntax lisp,scheme,clojure,racket RainbowParenthesesToggle
 
 " tabbar
-let g:Tb_MaxSize = 2
-let g:Tb_TabWrap = 1
+" let g:Tb_MaxSize = 2
+" let g:Tb_TabWrap = 1
 
-hi Tb_Normal guifg=white ctermfg=white
-hi Tb_Changed guifg=green ctermfg=green
-hi Tb_VisibleNormal ctermbg=252 ctermfg=235
-hi Tb_VisibleChanged guifg=green ctermbg=252 ctermfg=white
+" hi Tb_Normal guifg=white ctermfg=white
+" hi Tb_Changed guifg=green ctermfg=green
+" hi Tb_VisibleNormal ctermbg=252 ctermfg=235
+" hi Tb_VisibleChanged guifg=green ctermbg=252 ctermfg=white
 
 " easy-motion
 let g:EasyMotion_leader_key = '<Leader>'
@@ -213,6 +215,8 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType c setlocal omnifunc=ccomplete#Complete
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
+autocmd FileType go setlocal omnifunc=go#complete#Complete
+autocmd FileType go nmap <Leader>i <Plug>(go-info)
 
 " SuperTab
 "let g:SuperTabDefultCompletionType='context'
@@ -286,6 +290,7 @@ if has("gui_running")
     set showtabline=2
     set columns=140
     set lines=40
+    set mouse=a
     noremap <D-M-Left> :tabprevious<cr>
     noremap <D-M-Right> :tabnext<cr>
     map <D-1> 1gt
@@ -306,6 +311,8 @@ if (v:version >= 703)
     set undodir=~/.vim/undodir
     set undofile
 endif
+set backup
+set backupdir=~/.vim/backupdir
 
 "======= Neosnippet config ======
 source ~/.vim/neosnippet_cfg.vim
@@ -336,11 +343,10 @@ au BufWritePost *.[ch] call UpdateGtags(expand('<afile>'))
 nmap <C-CR> :tag <C-R>=expand("<cword>")<CR><CR>
 
 " add map for fast navigation files
-map <C-l> :tabn<cr>             "下一个tab
-map <C-h> :tabp<cr>             "上一个tab
-map <C-n> :tabnew<cr>           "新tab
-map <C-k> :bn<cr>               "下一个文件
-map <C-j> :bp<cr>               "上一个文件"
+" map <C-l> <ESC>:tabn<cr>             "下一个tab
+" map <C-h> <ESC>:tabp<cr>             "上一个tab
+" map <C-k> <ESC>:bp<cr>               "下一个文件
+" map <C-j> <ESC>:bn<cr>               "上一个文件"
 
 " map for change dir to current dir
 nnoremap <silent> <space>. :cd %:p:h<CR>
@@ -349,3 +355,9 @@ nnoremap <silent> <space>. :cd %:p:h<CR>
 source ~/.vim/unite_cfg.vim
 let g:jedi#completions_command = "<C-N>"
 let g:ackprg = "ag --vimgrep"
+
+let g:go_version_warning = 0
+
+source ~/.vim/fzf_cfg.vim
+" unite with fzf, not fully test
+" call unite#filters#matcher_default#use(['matcher_fzf'])

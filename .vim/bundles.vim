@@ -22,6 +22,10 @@ Plugin 'osyo-manga/unite-quickfix'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/neoyank.vim'
 Plugin 'Shougo/neomru.vim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'yuki-ycino/fzf-preview.vim'
+Plugin 'cskeeters/unite-fzf'
 
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
@@ -40,10 +44,10 @@ Plugin 'tomtom/tlib_vim'
 "-----------------
 " Fast navigation
 "-----------------
-Plugin 'edsono/vim-matchit'
+Plugin 'adelarsq/vim-matchit'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'vim-scripts/gtags.vim'
-Plugin 'mvalkon/gtags-cscope'
+Plugin 'watercolor/gtags-cscope.vim'
 Plugin 'vim-scripts/FuzzyFinder'
 Plugin 'vim-scripts/L9'
 
@@ -103,7 +107,9 @@ Plugin 'tpope/vim-markdown'
 " Plugin 'tpope/vim-endwise'
 
 "------- Go ----------
-Plugin 'jnwhiteh/vim-golang'
+Plugin 'fatih/vim-go'
+" Plugin 'maralla/completor.vim'
+" Plugin 'vim-scripts/DoxygenToolkit.vim'
 
 "------- FPs ------
 Plugin 'kien/rainbow_parentheses.vim'
@@ -127,7 +133,8 @@ Plugin 'douglasjacobsen/vim-bufexplorer'
 " Plugin 'FClad/vim-projexplorer'
 Plugin 'wesleyche/SrcExpl'
 " Plugin 'bolasblack/vimcdoc'
-Plugin 'asins/vimcdoc'
+" Plugin 'asins/vimcdoc'
+Plugin 'yianwillis/vimcdoc'
 Plugin 'mbbill/fencview'
 " Plugin 'KJlmfe/Conque-Shell'
 " has clang , but config is too complex
