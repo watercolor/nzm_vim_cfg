@@ -1,13 +1,11 @@
-source ~/.vim/bundles.vim
-
+source ~/.vim/pluged.vim
 " encoding dectection
 " set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 "========== my add begin ========== 
 "encoding set
 set encoding=utf-8
-" set fenc=cp936
-" set fenc=utf-8
-set fileencodings=utf-8,ucs-bom,gb18030,gb2312,gbk,cp936,latin1
+set fenc=cp936
+set fileencodings=ucs-bom,gb18030,utf-8,gb2312,gbk,cp936,latin1
 
 "for gvim menu display
 if has ('win32')
@@ -22,7 +20,7 @@ set nobomb
 
 "close fencview auto detect
 let g:fencview_autodetect=0
-map <C-F3> :FencView<cr>
+" map <C-F3> :FencView<cr>
 
 "set help language
 let helptags="/home/nzm/.vim/bundle/vimcdoc"
@@ -36,12 +34,10 @@ if has('win32')
 endif
 
 "Quickfix hotkey bindings
-nmap <leader>co <ESC>:copen<CR>
-nmap <leader>cd <ESC>:cclose<CR>
-nmap <C-n> <ESC>:cnext<cr>
-" nmap <C-p> <ESC>:cprev<cr>
-" map <leader>cn <ESC>:cnext<CR>
-" map <leader>cp <ESC>:cprev<CR>
+map <leader>co <ESC>:copen<CR>
+map <leader>cd <ESC>:cclose<CR>
+map ,cn <ESC>:cnext<CR>
+map ,cp <ESC>:cprev<CR>
 "========== my add end ========== 
 
 " enable filetype dectection and ft specific plugin/indent
@@ -83,6 +79,7 @@ set nofoldenable                                                  " disable fold
 set confirm                                                       " prompt when existing from an unsaved file
 set backspace=indent,eol,start                                    " More powerful backspacing
 set t_Co=256                                                      " Explicitly tell vim that the terminal has 256 colors "
+set mouse=a                                                       " use mouse in all modes
 set report=0                                                      " always report number of lines changed                "
 set nowrap                                                        " dont wrap lines
 set scrolloff=5                                                   " 5 lines above/below cursor when scrolling
@@ -146,13 +143,13 @@ let g:rbpt_max = 16
 autocmd Syntax lisp,scheme,clojure,racket RainbowParenthesesToggle
 
 " tabbar
-" let g:Tb_MaxSize = 2
-" let g:Tb_TabWrap = 1
+let g:Tb_MaxSize = 2
+let g:Tb_TabWrap = 1
 
-" hi Tb_Normal guifg=white ctermfg=white
-" hi Tb_Changed guifg=green ctermfg=green
-" hi Tb_VisibleNormal ctermbg=252 ctermfg=235
-" hi Tb_VisibleChanged guifg=green ctermbg=252 ctermfg=white
+hi Tb_Normal guifg=white ctermfg=white
+hi Tb_Changed guifg=green ctermfg=green
+hi Tb_VisibleNormal ctermbg=252 ctermfg=235
+hi Tb_VisibleChanged guifg=green ctermbg=252 ctermfg=white
 
 " easy-motion
 let g:EasyMotion_leader_key = '<Leader>'
@@ -215,8 +212,6 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType c setlocal omnifunc=ccomplete#Complete
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
-autocmd FileType go setlocal omnifunc=go#complete#Complete
-autocmd FileType go nmap <Leader>i <Plug>(go-info)
 
 " SuperTab
 "let g:SuperTabDefultCompletionType='context'
@@ -243,19 +238,6 @@ nnoremap <leader>v V`]
 "------------------
 " Useful Functions
 "------------------
-" easier navigation between split windows
-nnoremap <a-j> <c-w>j<cr>
-nnoremap <a-k> <c-w>k<cr>
-nnoremap <a-h> <c-w>h<cr>
-nnoremap <a-l> <c-w>l<cr>
-
-" When editing a file, always jump to the last cursor position
-autocmd BufReadPost *
-      \ if ! exists("g:leave_my_cursor_position_alone") |
-      \     if line("'\"") > 0 && line ("'\"") <= line("$") |
-      \         exe "normal g'\"" |
-      \     endif |
-      \ endif
 
 " w!! to sudo & write a file
 cmap w!! w !sudo tee >/dev/null %
@@ -263,15 +245,6 @@ cmap w!! w !sudo tee >/dev/null %
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
-" eggcache vim
-" nnoremap ; :
-:command W w
-:command WQ wq
-:command Wq wq
-:command Q q
-:command Qa qa
-:command QA qa
 
 " for macvim
 if has("gui_running")
@@ -290,7 +263,6 @@ if has("gui_running")
     set showtabline=2
     set columns=140
     set lines=40
-    set mouse=a
     noremap <D-M-Left> :tabprevious<cr>
     noremap <D-M-Right> :tabnext<cr>
     map <D-1> 1gt
@@ -311,19 +283,20 @@ if (v:version >= 703)
     set undodir=~/.vim/undodir
     set undofile
 endif
-set backup
-set backupdir=~/.vim/backupdir
 
 "======= Neosnippet config ======
 source ~/.vim/neosnippet_cfg.vim
 "======= neocomplete or neocomplcache begin ========
-if has('lua')
-    Plugin 'Shougo/neocomplete'
-    source ~/.vim/neocomplete_cfg.vim
-else
-    Plugin 'Shougo/neocomplcache'
-    source ~/.vim/neocomplcache_cfg.vim
-endif
+
+" Use deoplete.
+" let g:deoplete#enable_at_startup = 1
+" if has('lua')
+ " Plug 'Shougo/neocomplete'
+ " source ~/.vim/neocomplete_cfg.vim
+" else
+ " Plug 'Shougo/neocomplcache'
+ " source ~/.vim/neocomplcache_cfg.vim
+" endif
 "======= neocomplete or neocomplcache end ========
 
 "======= Clang complete =============
@@ -343,21 +316,21 @@ au BufWritePost *.[ch] call UpdateGtags(expand('<afile>'))
 nmap <C-CR> :tag <C-R>=expand("<cword>")<CR><CR>
 
 " add map for fast navigation files
-" map <C-l> <ESC>:tabn<cr>             "ä¸‹ä¸€ä¸ªtab
-" map <C-h> <ESC>:tabp<cr>             "ä¸Šä¸€ä¸ªtab
-" map <C-k> <ESC>:bp<cr>               "ä¸‹ä¸€ä¸ªæ–‡ä»¶
-" map <C-j> <ESC>:bn<cr>               "ä¸Šä¸€ä¸ªæ–‡ä»¶"
+map <C-l> :tabn<cr>             "ÏÂÒ»¸ötab
+map <C-h> :tabp<cr>             "ÉÏÒ»¸ötab
+map <C-n> :tabnew<cr>           "ÐÂtab
+map <C-k> :bn<cr>               "ÏÂÒ»¸öÎÄ¼þ
+map <C-j> :bp<cr>               "ÉÏÒ»¸öÎÄ¼þ"
 
 " map for change dir to current dir
 nnoremap <silent> <space>. :cd %:p:h<CR>
 
 " soure unite config
-source ~/.vim/unite_cfg.vim
+" source ~/.vim/unite_cfg.vim
+source ~/.vim/leaderf.vim
 let g:jedi#completions_command = "<C-N>"
-let g:ackprg = "ag --vimgrep"
+if executable('ag')
+    let g:ackprg = "ag --vimgrep"
+endif
 
-let g:go_version_warning = 0
-
-source ~/.vim/fzf_cfg.vim
-" unite with fzf, not fully test
-" call unite#filters#matcher_default#use(['matcher_fzf'])
+let g:loaded_matchit = 1
